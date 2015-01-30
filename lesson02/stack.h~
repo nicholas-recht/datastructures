@@ -1,0 +1,190 @@
+/***********************************************************************
+ * Header File
+ *    This is the header file for a Set Class
+ * Summary:
+ *    A 
+ * Author:
+ *    N
+ *
+ *    Estimated:  4.0 hrs
+ *    Actual:     170 min
+ *      The most difficult part 
+ ************************************************************************/
+
+#ifndef STACK_H
+#define STACK_H
+
+#include <iostream>
+#define ERROR_ALLOCATION "ERROR: Unable to allocate a new buffer for Stack"
+
+
+
+/*************************************************************
+*************************************************************/
+template <class T>
+class Stack
+{
+   public:
+      
+      //default constructor
+      Stack() : data(NULL), maxSize(0), numItems(0){}
+
+      //copy constructor
+      Stack(const Stack<T> & rhs);
+  
+      //constructor: sets initial size
+      Stack(int size) throw(const char *);
+      
+      //destructor
+      ~Stack() {if (numItems) delete [] data;}
+
+      // returns a boolean value of whether the set is currently empty
+      bool empty() {return !(numItems);}
+
+      // returns an int value of the number of items in the set
+      int size() {return numItems;}
+
+      // clears all the items from the stack
+      void clear() {numItems = 0;}
+
+      // 
+      void push(T input) throw(const char*);
+
+      //
+      void pop() throw(const char*);
+
+      //
+      T & top() throw(const char*);
+
+   private:
+      T * data;
+      int maxSize;
+      int numItems;
+
+      //Member function used for resizing. Throws exception if allocation fails
+      void resize() throw (const char *);
+         
+};
+
+
+/***************************************************
+* STACK: COPY CONSTRUCTOR
+***************************************************/
+template<class T>
+Stack<T> :: Stack(const Stack<T> & rhs)
+{
+   //copy information
+   numItems = 0;
+   maxSize = rhs.maxSize;
+   data = new T[rhs.maxSize];
+
+   //do nothing else if size is 0
+   if (!maxSize)
+      return;
+
+   //copy the data
+   while (numItems < rhs.numItems)
+   {
+      data[numItems] = rhs.data[numItems];
+      numItems++;
+   }
+   return;
+}
+
+/***************************************************
+* STACK: CONSTRUCTOR
+***************************************************/
+template<class T>
+Stack<T> :: Stack(int size) throw (const char *)
+{
+   numItems = 0;
+   maxSize = size;
+   try
+   {
+      data = new T[size];
+   }
+   catch (...)
+   {
+      throw ERROR_ALLOCATION;
+   }
+}
+
+/***************************************************
+* STACK: RESIZE
+***************************************************/
+template<class T>
+void Stack<T>::resize() throw (const char *)
+{
+
+   T * temp;
+   try
+   {
+      temp = new T[2*maxSize];
+   }
+   catch (...)
+   {
+      throw ERROR_ALLOCATION;
+   }
+
+   for (int i = 0; i < numItems; i++)
+      temp[i] = data[i];
+
+   delete [] data;
+
+   data = temp;
+   maxSize *= 2;
+}
+
+
+/***************************************************
+* STACK: PUSH
+***************************************************/
+template<class T>
+void Stack<T> :: push(T input) throw(const char*)
+{
+   //for a size 0 stack
+   if (data == NULL)
+   {
+      data = new T[1];
+      maxSize = 1;
+   }
+
+   // for a full stack
+   if (maxSize == numItems)
+      resize();
+   
+   //pushing the data
+   numItems++;
+   top() = input;
+}
+
+/***************************************************
+* STACK: POP
+***************************************************/
+template<class T>
+void Stack<T> :: pop() throw(const char*)
+{
+   // for an empty stack
+   if (!numItems)
+      throw "ERROR: Unable to pop from an empty Stack";
+   
+   // remove the most recently adding element
+   numItems--;
+   return;
+}
+
+/***************************************************
+* STACK: TOP
+***************************************************/
+template<class T>
+T & Stack<T> :: top() throw(const char*)
+{
+   // for an empty stack
+   if (!numItems)
+      throw "ERROR: Unable to reference the element from an empty Stack";
+
+   //refence the most recently adding element
+   return data[numItems - 1];
+}
+
+#endif //STACK_H

@@ -1,0 +1,288 @@
+/***********************************************************************
+ * Header:
+ *    QUEUE_H
+ * Summary:
+ *    This is the header file for the queue class. The queue is a template
+ *    container class that behaves as first-in, first-out. 
+ * Author
+ *    Nicholas Recht
+ * Time:
+ *    EST: 3hrs
+ *    ACT: 3.5hrs
+ *         The most difficult part was finding the precompiled header... :(
+ ************************************************************************/
+
+#ifndef QUEUE_H
+#define QUEUE_H
+
+#include <iostream>
+#include <cassert>
+
+#define ERROR_ALLOCATION "ERROR: Unable to allocate a new buffer for queue"
+#define ERROR_EMPTY "ERROR: attempting to access an item in an empty queue"
+#define ERROR_POP "ERROR: attempting to pop from an empty queue"
+
+
+/**************************************************************************
+ * Queue Class
+ * A template container that behaves as first-in, first-out. Items can be
+ * added to the queue with the push() function and then the first item in
+ * the queue can be referenced with the front() function. 
+ **************************************************************************/
+template<class T>
+class Queue
+{
+  public: 
+   //default constructor. Does almost nothing
+   Queue() : numPush(0), numPop(0), maxSize(0), data(NULL) {       }
+   //non-default construct. Assigns capacity to passed integer value. Throws
+   //if the allocation fails
+   Queue(int newSize) throw(const char *) :
+         numPush(0), numPop(0), maxSize(0), data(NULL)
+   {
+      resize(newSize);
+   }
+   
+   //copy constructor. Assigns the contents of the referenced queue to this
+   Queue(const Queue & q) throw(const char *) :
+   numPush(0), numPop(0), maxSize(0), data(NULL)
+   {
+       *this = q;
+   }
+   
+   //Destructor. Frees the allocated memory
+   ~Queue() { if (maxSize != 0) delete [] data; }
+
+   //Assignment Operator. Copies the contents of another queue to this
+   Queue<T> & operator = (const Queue & rhs) throw (const char *);
+
+   //empty. Returns a boolean value of whether the set is empty or not
+   bool empty() const { return (size() == 0); }
+
+   //size. Returns the number of items in the queue. 
+   int size() const  { return numPush - numPop; }
+   
+   //capacity; returns an integer value of the capacity of the queue
+   int capacity() const { return maxSize; }
+
+   //clear; Empties the queue of all items
+   void clear()
+   {
+      numPush = 0;
+      numPop = 0; 
+   }
+
+   //push; adds an item to the back of the queue. Throws an error if memory
+   //      allocation fails
+   void push(const T & item) throw(const char *); 
+
+   //pop; removes an item from the front of the queue. Throws an error if
+   //     the queue is already empty
+   void pop() throw(const char *);
+
+   //front; returns the item currently at the front of the queue. Throws an
+   //       error if the queue is empty
+   T & front() throw(const char *);
+
+   //back; returns the item currently at the back of the queue. Throws an
+   //      error if the queue is empty
+   T & back() throw (const char *);
+   
+  private:
+
+   //Reallocates memory to grow the queue. Throws an error if allocation fails
+   void resize(int newSize) throw(const char *);
+
+   //head; gives the integer index of the head of my queue
+   int head() const; 
+
+   //end; gives the integer index of the end of the queue
+   int end() const;
+   
+   T * data;
+   int numPush;
+   int numPop;
+   int maxSize; 
+};
+
+
+/**************************************************************************
+ * Queue::head
+ * returns an integer index to first item in the queue
+ **************************************************************************/
+template<class T>
+int Queue<T>::head() const
+{
+   if (maxSize > 0)
+      return numPop % maxSize;
+   else
+      return 0; 
+}
+
+/**************************************************************************
+ * Queue::end
+ * Returns an integer index to where the last item in the queue should
+ * be placed. Or where the next item will be pushed
+ **************************************************************************/
+template<class T>
+int Queue<T>::end() const
+{
+   if (maxSize > 0)
+      return numPush % maxSize;
+   else
+      return 0; 
+}
+
+/**************************************************************************
+ * Queue:: = operator
+ * copies the data of rhs queue to this queue. Throws if allocation fails
+ **************************************************************************/
+template<class T>
+Queue<T> & Queue<T>::operator = (const Queue<T> & rhs) throw(const char *)
+{
+   if (rhs.capacity() != 0)
+   {
+      if (maxSize < rhs.maxSize)
+         resize(rhs.maxSize);
+
+      int iRhs = rhs.head(); //counter for rhs queue
+      int iLhs = 0; //counter for this queue
+      //stop once all our elements  have been copied
+      while(iLhs < rhs.size())
+      {
+         //wrap around if we've reached the end
+         if (iRhs > rhs.maxSize - 1)
+            iRhs = 0;
+      
+         data[iLhs] = rhs.data[iRhs];
+         iRhs++;
+         iLhs++;
+      }
+
+      //Reset our push and pops to the beginning and end
+      numPush = rhs.size();
+      numPop = 0;
+     
+   }
+   else //if it's empty just clear this Queue
+      clear(); 
+}
+
+
+/**************************************************
+ * Queue::resize
+ * Internal function for reallocating memory. Throws
+ * an exception if the allocation fails. 
+ *************************************************/
+template<class T>
+void Queue<T>::resize(int newSize) throw (const char *)
+{
+   T * temp;
+   try
+   {
+      temp = new T[newSize];
+   }
+   catch (...)
+   {
+      throw ERROR_ALLOCATION;
+   }
+   if (maxSize != 0)
+   {
+      //Loop; start with the front and loop through until we've reached the head        
+      int iTemp = 0;
+      int iData = head();
+      
+      //s  top once all our elements  have been copied
+      while(iTemp < size())
+      {
+         //wrap around if we've reached the end
+         if (iData > maxSize - 1)
+            iData = 0;
+         
+         temp[iTemp] = data[iData];
+         iTemp++;
+         iData++; 
+      }
+   
+      assert(NULL != data);
+      delete [] data;
+   }
+   data = temp;
+
+   numPush = size();
+   numPop = 0; 
+   maxSize = newSize;
+   
+}
+
+/**************************************************************************
+ * Queue::push
+ * Adds an item to the end of the queue. Throws if allocation fails
+ **************************************************************************/
+template<class T>
+void Queue<T>::push(const T & item) throw(const char *)
+{
+   //resize if needed
+   if (size() == maxSize)
+   {
+      if (maxSize == 0)
+         resize(1);
+      else
+         resize(maxSize * 2);
+   }
+
+   //assign our item; 
+   data[end()] = item;
+   numPush++; 
+}
+
+/**************************************************************************
+ * Queue::pop
+ * Removes the first item from the front of the queue. Throws if the
+ * queue is empty. 
+ **************************************************************************/
+template<class T>
+void Queue<T>::pop() throw(const char *)
+{
+   //Throw if it is empty
+   if (size() == 0)
+      throw ERROR_POP;
+   else
+   {
+      numPop++; 
+   }
+}
+
+/****************************************************************************
+ * Queue::front; returns the item currently at the front of the queue. Throws an
+ *       error if the queue is empty
+ ****************************************************************************/
+template<class T>
+T & Queue<T>::front() throw(const char *)
+{
+   if (size() != 0)
+      return data[head()];
+   else
+      throw ERROR_EMPTY;
+}
+
+/**************************************************************************
+ * Queue::back; returns the item currently at the back of the queue. Throws an
+ *     error if the queue is empty
+ *************************************************************************/
+template<class T>
+T & Queue<T>::back() throw (const char *)
+{
+   if (size() != 0)
+   {
+      //wrap around to the end
+      if (end() == 0)
+         return data[maxSize - 1]; 
+      else
+         return data[end() - 1];
+   }
+   else
+      throw ERROR_EMPTY; 
+}
+
+#endif //QUEUE_H

@@ -1,0 +1,162 @@
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDireab9b645-132f-422a-a976-4a74c1d7658a/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDir5e3e4faa-0f86-47e9-bb09-a4b3e285b1bf/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDira9469001-f377-4fe8-aca3-7a0dac1e62b9/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDirc9b1ecde-9dea-49ba-91f8-1f4ed3475849/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDir2483338c-c2e6-4d4d-98e2-2c991097232e/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDir6de3d1cc-53b7-41e3-8cbd-21460cdc5b9b/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDir476d555f-766c-46f8-8a87-aca687fd3e74/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDirabdaccd2-0bfb-46c9-8cae-a4fd69250fc6/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson11/lesson11.tar.dir'
+g++ -c lesson11.cpp 
+g++ -c spellCheck.cpp
+g++ -o a.out lesson11.o spellCheck.o
+tar -cf lesson11.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson11/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDir624cc523-c54a-4cae-a980-1262e25b7c29/lesson11 2>> lesson11.compile >> lesson11.compile 
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 

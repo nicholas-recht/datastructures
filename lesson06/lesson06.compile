@@ -1,0 +1,332 @@
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp
+g++ -c wholeNumber.cpp
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir951c1c78-2117-4918-8dba-00b142135e8b/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp
+g++ -c wholeNumber.cpp
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir91dee9e3-368c-4617-b89c-e6740b32ae90/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp
+g++ -c wholeNumber.cpp
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDirf9cd662c-c36e-4e7b-85fb-875275d3bc1f/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp
+g++ -c wholeNumber.cpp
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir8f3a9786-44d0-400d-b45f-601b59d9d27d/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp
+g++ -c wholeNumber.cpp
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDird3a5298a-55d7-460b-976a-da602dc39cbe/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp -g
+g++ -c fibonacci.cpp -g
+g++ -c wholeNumber.cpp -g
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o -g
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir9fa52410-5235-430e-9d10-dc154491d248/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp -g
+g++ -c fibonacci.cpp -g
+g++ -c wholeNumber.cpp -g
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o -g
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir6972162b-fcd4-4e63-a79a-4f9f97e24845/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp -g
+g++ -c fibonacci.cpp -g
+g++ -c wholeNumber.cpp -g
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o -g
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir65211c05-6fa0-43eb-a1ad-79261c41c8ab/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir9d822a5a-c615-48b6-b8dc-db0558fac33c/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir55e575ca-f051-41b0-9eee-00a541f24453/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDirb44551db-80c4-4ed8-b840-ade2a51cefe6/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir54dc3dce-5fdc-40b3-86c1-31494fe66327/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDircf5abbcb-856e-4e92-86d5-e17d776b2517/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDira9135fc3-6fb3-40a2-a7e7-21c2542a366c/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir531e03cd-456a-4f7d-9774-f4d100521794/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDir926e21d3-1083-4cc4-9c6e-a6360b91fcf6/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 
+
+# mkdir lesson06.tar.dir 2>> lesson06.compile 
+
+# cp lesson06.tar lesson06.tar.dir/tar.tar 2>> lesson06.compile 
+
+# tar -xf  lesson06.tar.dir/tar.tar -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+
+# make a.out -C lesson06.tar.dir 2>> lesson06.compile >> lesson06.compile 
+make: Entering directory `/home/cs235f/lesson06/lesson06.tar.dir'
+g++ -c lesson06.cpp
+g++ -c fibonacci.cpp 
+g++ -c wholeNumber.cpp 
+g++ -c wholenumberdriver.cpp 
+g++ -o a.out lesson06.o fibonacci.o wholeNumber.o wholenumberdriver.o
+tar -cf lesson06.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson06/lesson06.tar.dir'
+
+# mv lesson06.tar.dir/a.out /tmp/testbed/compileDirba75b46c-0d85-4f64-a560-66a1cdd61ceb/lesson06 2>> lesson06.compile >> lesson06.compile 
+
+# rm -rf lesson06.tar.dir 2>> lesson06.compile 

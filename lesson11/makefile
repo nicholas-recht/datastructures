@@ -1,0 +1,33 @@
+###############################################################
+# Program:
+#     Lesson 11, Hash
+#     Brother Helfrich, CS265
+# Author:
+#     Justin Ricks, Nick Recht
+# Summary:
+#     Spellcheck with Hashes!
+#     This program perfoms a spellcheck on a plaintext document
+#     using a hash table to store a dictionary of words. hash.h
+#     contains a base class called Hash. It's hash() method is
+#     defined in the child class to make it table work.
+#
+# Time: (combined) approx 7 hours
+###############################################################
+
+##############################################################
+# The main rule
+##############################################################
+a.out: lesson11.o spellCheck.o
+	g++ -o a.out lesson11.o spellCheck.o
+	tar -cf lesson11.tar *.h *.cpp makefile
+
+##############################################################
+# The individual components
+#      lesson11.o     : the driver program
+#      spellCheck.o   : the spell-check program and driver
+##############################################################
+lesson11.o: hash.h lesson11.cpp
+	g++ -c lesson11.cpp 
+
+spellCheck.o: hash.h spellCheck.h spellCheck.cpp dictionaryHash.h
+	g++ -c spellCheck.cpp

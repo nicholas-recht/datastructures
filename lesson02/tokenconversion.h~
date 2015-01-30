@@ -1,0 +1,20 @@
+#ifndef TOKENCONVERSION_H
+#define TOKENCONVERSION_H
+
+#include <stack>
+#include <string>
+
+//Converts a given string into a stack of tokens that can be used for display
+class TokenConversion
+{
+  public:
+   TokenConversion(std::string);
+   void AddElement(std::string); 
+   friend ostream & operator << (ostream & out, const TokenConversion & rhs);
+  private:
+   std::stack dStack; //the stack used for display
+   
+};
+
+
+#endif //TOKENCONVERSION_H

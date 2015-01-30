@@ -1,0 +1,58 @@
+/***********************************************************************
+ * Header:
+ *    INFIX
+ * Summary:
+ *    This will contain just the prototype for the convertInfixToPostfix()
+ *    function
+ * Author
+ *    Nicholas Recht
+ ************************************************************************/
+
+#include "infix.h"
+#include <iostream>
+#include "infixconversion.h"
+#include "assemblyconversion.h"
+#include <string>
+using namespace std;
+
+#define USER_PROMPT_FIRST "Enter an infix equation.  Type \"quit\" when done."
+#define USER_PROMPT "infix > "
+#define OUTPUT_POSTFIX "\tpostfix:  "
+#define OUTPUT_ASSEMBLY
+/*****************************************************
+ * CONVERT INFIX TO POSTFIX
+ * Prompt the user for infix text and display the
+ * equivalent postfix expression
+ *****************************************************/
+void convertInfixToPostfix()
+{
+   string s;
+   cout << USER_PROMPT_FIRST << endl; 
+   while (s != "quit")
+   {
+      cout << USER_PROMPT;
+      getline (cin, s);
+      cout << OUTPUT_POSTFIX << InfixConversion(s);
+      cout << endl << endl; 
+   }
+}
+
+/*****************************************************
+ * testInfixToAssembly
+ * Prompt the user for infix text and display the
+ * equivalent assembly instructions
+ *****************************************************/
+void testInfixToAssembly()
+{
+   string s;
+   cout << USER_PROMPT_FIRST << endl; 
+   while (s != "quit")
+   {
+      cout << USER_PROMPT;
+      getline (cin, s);
+      InfixConversion i(s);
+      AssemblyConversion a(i.getEquation());
+      cout << a; 
+ 
+   }
+}

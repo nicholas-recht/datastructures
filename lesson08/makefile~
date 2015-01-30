@@ -1,0 +1,26 @@
+###############################################################
+# Program:
+#     Lesson 08, Binary Search Tree
+#     Brother Helfrich, CS265
+# Author:
+#     <your name here>
+# Summary:
+#     <put a description here>
+# Time:
+#     <how long did it take to complete this program>?
+###############################################################
+
+##############################################################
+# The main rule
+##############################################################
+a.out: lesson08.o
+	g++ -o a.out lesson08.o
+	tar -cf lesson08.tar *.h *.cpp makefile
+
+##############################################################
+# The individual components
+#      lesson08.o     : the driver program
+##############################################################
+lesson08.o: bst.h lesson08.cpp sortBinary.h
+	g++ -c lesson08.cpp
+

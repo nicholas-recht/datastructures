@@ -1,0 +1,228 @@
+/***********************************************************************
+* Program:
+*    Lesson 05, NODE
+*    Brother Helfrich, CS 235
+* Author:
+*    Justin Ricks
+* Summary: 
+*    This file contains the implementation of the Node class, along with
+*    the global functions to make it work.
+************************************************************************/
+#ifndef NODE_H
+#define NODE_H
+
+#include <iostream> // for operator << ()
+
+/******************************************************************
+ * Node Class
+ * This is a public class; no private anything, used in implementing
+ * a linked list. This Node class is doubly linked (forward and back)
+ ******************************************************************/
+template <class T>
+class Node
+{
+// everything's public!
+public:
+   // default constructor
+   Node() : pNext(NULL), pPrev(NULL) {}
+
+   // non-default constructor, takes data as parameter
+   Node(const T & t)
+      : pNext(NULL), pPrev(NULL) { this->data = t; }
+
+   // pointer to the next item
+   Node * pNext;
+
+   // pointer to the previous item
+   Node * pPrev;
+     
+   // the data
+   T data;
+};
+
+/******************************************************************
+* Free Data
+* This is a global function. It takes as a parameter a pointer to
+* the head of the list, and deletes all the nodes in the list and
+* returns a NULL pointer if succesful
+******************************************************************/
+template <class T>
+void freeData(Node <T> * & pHead)
+{
+   // if this is null, return out
+   if (pHead == NULL)
+      return;
+
+   else
+   {
+      // call freeData on the next item
+      freeData(pHead->pNext);
+
+      // now delete the data
+      delete pHead->pNext;
+      pHead = NULL;
+   }
+
+   return;
+}
+
+/******************************************************************
+* Copy
+* This is a global function. It takes as a parameter a pointer to
+* the head of the list, creates a copy of that list, and returns
+* a pointer to the copy
+******************************************************************/
+template <class T>
+Node <T> * copy(Node <T> * pHead) throw (const char *)
+{
+   try
+   {
+      // create a new head node * to return
+      Node <T> * pCopyHead = new Node <T>;
+
+      // a copy to work with
+      Node <T> * pNode = pCopyHead;
+
+      // copy the data in head
+      pNode->data = pHead->data;
+
+      // loop till the next item is the end of the list
+      while(pHead->pNext)
+      {
+         // create a new node to hold what's in next
+         pNode->pNext = new Node <T> (pHead->pNext->data);
+
+         // set the prev pointer to this
+         pNode->pNext->pPrev = pNode;
+
+         // advance the lists
+         pNode = pNode->pNext;
+         pHead = pHead->pNext;
+      }
+
+      // return a copy of the head
+      return pCopyHead;
+   }
+      
+   catch (std::bad_alloc)
+   {
+      throw "ERROR: Could not allocate a new node.";
+   }
+}
+
+/******************************************************************
+* Insert
+* This is a global function. Parameters are the data to input, a
+* pointer to the preceeding node to insert this one, and a boolean
+* value indicating whether or not the insertion is at the beginning
+* of the list
+* Takes the pointer by reference because in the case the the insertion
+* is at the head, the pointer will change to the new head
+******************************************************************/
+template <class T>
+void insert(T t, Node <T> * & pBefore, bool head = false) throw (const char *)
+{
+   // check if we're inserting at the head. If this is the first item, then
+   // we are, whether or not the user specified
+   if (head || !pBefore)
+   {
+      try
+      {
+         // create a new node
+         Node <T> * pNew = new Node <T> (t);
+
+         // point the new node to the first item in the list
+         pNew->pNext = pBefore;
+
+         // since this is the front of the list, its pPrev is NULL
+         pNew->pPrev = NULL;
+
+         // change the next guy's pPrev to point to the new head
+         if (pBefore)
+            pBefore->pPrev = pNew;
+
+         // change the pointer so the client's pointer changes to the new head
+         pBefore = pNew;
+      }
+
+      catch (std::bad_alloc)
+      {
+         throw "ERROR: Could not allocate a new node.";
+      }
+   }
+
+   else
+   {
+      try
+      {
+         // create a new node
+         Node <T> * pNew = new Node <T> (t);
+
+         // set the new node's pointer to where the one before it was pointing
+         pNew->pNext = pBefore->pNext;
+
+         // link in the previous item
+         pNew->pPrev = pBefore;
+
+         // point the preceding node to the new node
+         pBefore->pNext = pNew;
+      }
+      catch (std::bad_alloc)
+      {
+         throw "ERROR: Could not allocate a new node.";
+      }
+   }
+}
+
+/******************************************************************
+ * Insertion operator
+ * This function displays the comma-separated list
+ ******************************************************************/
+template <class T>
+std::ostream & operator << (std::ostream & out, Node <T> * pHead)
+{
+   // while we're not pointing at NULL
+   while (pHead)
+   {
+      out << pHead->data;
+
+      // if this isn't the last item, we need a comma
+      if (pHead->pNext)
+      {
+         out << ", ";
+      }
+
+      pHead = pHead->pNext;
+   }
+
+   return out;
+}
+
+/******************************************************************
+ * Find
+ * Given a value to searc for and a pointer to the head of a list,
+ * returns a pointer to the first node containing that value.
+ * Returns NULL if the item was not found.
+ ******************************************************************/
+template <class T>
+Node <T> * find(Node <T> * pHead, const T t)
+{
+   // make sure the list isn't empty to begin with
+   if (!pHead)
+      return NULL;
+
+   // go till the end of the list
+   while (pHead)
+   {
+      if (pHead->data == t)
+         return pHead;
+
+      // increment the pointer
+      pHead = pHead->pNext;
+   }
+
+   // if we got out, we didn't find it
+   return NULL;
+}
+
+#endif // NODE_H

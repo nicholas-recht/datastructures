@@ -1,0 +1,10 @@
+#include "token.h"
+#include <string>
+
+using namespace std;
+
+Token::Token(string s)
+{
+   if (s == "+")
+      opData = s;
+}

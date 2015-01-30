@@ -1,0 +1,211 @@
+<html><body><div class=WordSection1><p style="font-family:Consolas;font-size:11;margin-top:6pt;margin-bottom:6pt"><span style="color:#929ca0">/***********************************************************************<br/>
+*&nbsp;Header:<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;Container<br/>
+*&nbsp;Summary:<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;class&nbsp;contains&nbsp;the&nbsp;notion&nbsp;of&nbsp;a&nbsp;container:&nbsp;a&nbsp;bucket&nbsp;to&nbsp;hold<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;for&nbsp;the&nbsp;user.&nbsp;This&nbsp;is&nbsp;just&nbsp;a&nbsp;starting-point&nbsp;for&nbsp;more&nbsp;advanced<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;constainers&nbsp;such&nbsp;as&nbsp;the&nbsp;vector,&nbsp;set,&nbsp;stack,&nbsp;queue,&nbsp;deque,&nbsp;and&nbsp;map<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;we&nbsp;will&nbsp;build&nbsp;later&nbsp;this&nbsp;semester.<br/>
+*<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;contain&nbsp;the&nbsp;class&nbsp;definition&nbsp;of:<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Container&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;A&nbsp;class&nbsp;that&nbsp;holds&nbsp;stuff<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;:&nbsp;An&nbsp;interator&nbsp;through&nbsp;Container<br/>
+*&nbsp;Author<br/>
+*&nbsp;&nbsp;&nbsp;&nbsp;Br.&nbsp;Helfrich<br/>
+************************************************************************/</span><br/>
+<br/>
+<span style="color:#2c62ba">#ifndef</span>&nbsp;CONTAINER_H<br/>
+<span style="color:#2c62ba">#define</span>&nbsp;CONTAINER_H<br/>
+<br/>
+<span style="color:#2c62ba">#include</span>&nbsp;&lt;cassert&gt;<br/>
+<br/>
+<span style="color:#929ca0">//&nbsp;forward&nbsp;declaration&nbsp;for&nbsp;ContainerIterator</span><br/>
+<span style="color:#2c62ba">template</span>&nbsp;&lt;class&nbsp;T&gt;<br/>
+<span style="color:#2c62ba">class</span>&nbsp;ContainerIterator;<br/>
+<br/>
+<span style="color:#929ca0">/************************************************<br/>
+&nbsp;*&nbsp;CONTAINER<br/>
+&nbsp;*&nbsp;A&nbsp;class&nbsp;that&nbsp;holds&nbsp;stuff<br/>
+&nbsp;***********************************************/</span><br/>
+<span style="color:#2c62ba">template</span>&nbsp;&lt;class&nbsp;T&gt;<br/>
+<span style="color:#2c62ba">class</span>&nbsp;Container<br/>
+{<br/>
+<span style="color:#2c62ba">public</span>:<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;default&nbsp;constructor&nbsp;:&nbsp;empty&nbsp;and&nbsp;kinda&nbsp;useless</span><br/>
+&nbsp;&nbsp;&nbsp;Container()&nbsp;:&nbsp;numItems(0),&nbsp;capacity(0),&nbsp;data(0x00000000)&nbsp;{}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;copy&nbsp;constructor&nbsp;:&nbsp;copy&nbsp;it</span><br/>
+&nbsp;&nbsp;&nbsp;Container(<span style="color:#2c62ba">const</span>&nbsp;Container&nbsp;&amp;&nbsp;rhs)&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;<span style="color:#2c62ba">char</span>&nbsp;*);<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;non-default&nbsp;constructor&nbsp;:&nbsp;pre-allocate</span><br/>
+&nbsp;&nbsp;&nbsp;Container(<span style="color:#2c62ba">int</span>&nbsp;capacity)&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;<span style="color:#2c62ba">char</span>&nbsp;*);<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;destructor&nbsp;:&nbsp;free&nbsp;everything</span><br/>
+&nbsp;&nbsp;&nbsp;~Container()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<span style="color:#2c62ba">if</span>&nbsp;(capacity)&nbsp;<span style="color:#2c62ba">delete</span>&nbsp;[]&nbsp;data;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;is&nbsp;the&nbsp;container&nbsp;currently&nbsp;empty</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">bool</span>&nbsp;empty()&nbsp;<span style="color:#2c62ba">const</span>&nbsp;&nbsp;{&nbsp;<span style="color:#2c62ba">return</span>&nbsp;numItems&nbsp;==&nbsp;0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;remove&nbsp;all&nbsp;the&nbsp;items&nbsp;from&nbsp;the&nbsp;container</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">void</span>&nbsp;clear()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;numItems&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;how&nbsp;many&nbsp;items&nbsp;are&nbsp;currently&nbsp;in&nbsp;the&nbsp;container?</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">int</span>&nbsp;size()&nbsp;<span style="color:#2c62ba">const</span>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<span style="color:#2c62ba">return</span>&nbsp;numItems;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;add&nbsp;an&nbsp;item&nbsp;to&nbsp;the&nbsp;container</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">void</span>&nbsp;insert(<span style="color:#2c62ba">const</span>&nbsp;T&nbsp;&amp;&nbsp;t)&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;<span style="color:#2c62ba">char</span>&nbsp;*);<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;return&nbsp;an&nbsp;iterator&nbsp;to&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;list</span><br/>
+&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;&lt;T&gt;&nbsp;begin()&nbsp;{&nbsp;<span style="color:#2c62ba">return</span>&nbsp;ContainerIterator&lt;T&gt;(data);&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;return&nbsp;an&nbsp;iterator&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;list</span><br/>
+&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;&lt;T&gt;&nbsp;end()&nbsp;{&nbsp;<span style="color:#2c62ba">return</span>&nbsp;ContainerIterator&lt;T&gt;(data&nbsp;+&nbsp;numItems);}<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+<span style="color:#2c62ba">private</span>:<br/>
+&nbsp;&nbsp;&nbsp;T&nbsp;*&nbsp;data;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;dynamically&nbsp;allocated&nbsp;array&nbsp;of&nbsp;T</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">int</span>&nbsp;numItems;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;how&nbsp;many&nbsp;items&nbsp;are&nbsp;currently&nbsp;in&nbsp;the&nbsp;Container?</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">int</span>&nbsp;capacity;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;how&nbsp;many&nbsp;items&nbsp;can&nbsp;I&nbsp;put&nbsp;on&nbsp;the&nbsp;Container&nbsp;before&nbsp;full?</span><br/>
+};<br/>
+<br/>
+<span style="color:#929ca0">/**************************************************<br/>
+&nbsp;*&nbsp;CONTAINER&nbsp;ITERATOR<br/>
+&nbsp;*&nbsp;An&nbsp;iterator&nbsp;through&nbsp;Container<br/>
+&nbsp;*************************************************/</span><br/>
+<span style="color:#2c62ba">template</span>&nbsp;&lt;class&nbsp;T&gt;<br/>
+<span style="color:#2c62ba">class</span>&nbsp;ContainerIterator<br/>
+{<br/>
+&nbsp;&nbsp;<span style="color:#2c62ba">public</span>:<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;default&nbsp;constructor</span><br/>
+&nbsp;&nbsp;ContainerIterator()&nbsp;:&nbsp;p(0x00000000)&nbsp;{}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;initialize&nbsp;to&nbsp;direct&nbsp;p&nbsp;to&nbsp;some&nbsp;item</span><br/>
+&nbsp;&nbsp;ContainerIterator(T&nbsp;*&nbsp;p)&nbsp;:&nbsp;p(p)&nbsp;{}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;copy&nbsp;constructor</span><br/>
+&nbsp;&nbsp;&nbsp;ContainerIterator(<span style="color:#2c62ba">const</span>&nbsp;ContainerIterator&nbsp;&amp;&nbsp;rhs)&nbsp;{&nbsp;*this&nbsp;=&nbsp;rhs;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;assignment&nbsp;operator</span><br/>
+&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;&amp;&nbsp;<span style="color:#2c62ba">operator</span>&nbsp;=&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;ContainerIterator&nbsp;&amp;&nbsp;rhs)<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">this</span>-&gt;p&nbsp;=&nbsp;rhs.p;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>&nbsp;*this;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;not&nbsp;equals&nbsp;operator</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">bool</span>&nbsp;<span style="color:#2c62ba">operator</span>&nbsp;!=&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;ContainerIterator&nbsp;&amp;&nbsp;rhs)&nbsp;<span style="color:#2c62ba">const</span><br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>&nbsp;rhs.p&nbsp;!=&nbsp;<span style="color:#2c62ba">this</span>-&gt;p;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;dereference&nbsp;operator</span><br/>
+&nbsp;&nbsp;&nbsp;T&nbsp;&amp;&nbsp;<span style="color:#2c62ba">operator</span>&nbsp;*&nbsp;()<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>&nbsp;*p;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;prefix&nbsp;increment</span><br/>
+&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;&lt;T&gt;&nbsp;&amp;&nbsp;<span style="color:#2c62ba">operator</span>&nbsp;++&nbsp;()<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p++;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>&nbsp;*this;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;postfix&nbsp;increment</span><br/>
+&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;&lt;T&gt;&nbsp;operator++(<span style="color:#2c62ba">int</span>&nbsp;postfix)<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ContainerIterator&nbsp;tmp(*this);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p++;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>&nbsp;tmp;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;<span style="color:#2c62ba">private</span>:<br/>
+&nbsp;&nbsp;&nbsp;T&nbsp;*&nbsp;p;<br/>
+};<br/>
+<br/>
+<span style="color:#929ca0">/*******************************************<br/>
+&nbsp;*&nbsp;CONTAINER&nbsp;::&nbsp;COPY&nbsp;CONSTRUCTOR<br/>
+&nbsp;*******************************************/</span><br/>
+<span style="color:#2c62ba">template</span>&nbsp;&lt;class&nbsp;T&gt;<br/>
+Container&nbsp;&lt;T&gt;&nbsp;::&nbsp;Container(<span style="color:#2c62ba">const</span>&nbsp;Container&nbsp;&lt;T&gt;&nbsp;&amp;&nbsp;rhs)&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;<span style="color:#2c62ba">char</span>&nbsp;*)<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">assert</span>(rhs.capacity&nbsp;&gt;=&nbsp;0);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;do&nbsp;nothing&nbsp;if&nbsp;there&nbsp;is&nbsp;nothing&nbsp;to&nbsp;do</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">if</span>&nbsp;(rhs.capacity&nbsp;==&nbsp;0)<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;capacity&nbsp;=&nbsp;numItems&nbsp;=&nbsp;0;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;=&nbsp;0x00000000;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;attempt&nbsp;to&nbsp;allocate</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">try</span><br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;=&nbsp;new&nbsp;T[rhs.capacity];<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">catch</span>&nbsp;(<span style="color:#2c62ba">std</span>::bad_alloc)<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;<span style="color:#466ba6">"ERROR:&nbsp;Unable&nbsp;to&nbsp;allocate&nbsp;buffer"</span>;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;copy&nbsp;over&nbsp;the&nbsp;stuff</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">assert</span>(rhs.numItems&nbsp;&gt;=&nbsp;0&nbsp;&amp;&amp;&nbsp;rhs.numItems&nbsp;&lt;=&nbsp;rhs.capacity);<br/>
+&nbsp;&nbsp;&nbsp;capacity&nbsp;=&nbsp;rhs.capacity;<br/>
+&nbsp;&nbsp;&nbsp;numItems&nbsp;=&nbsp;rhs.numItems;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">for</span>&nbsp;(<span style="color:#2c62ba">int</span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;numItems;&nbsp;i++)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i]&nbsp;=&nbsp;rhs.data[i];<br/>
+}<br/>
+<br/>
+<span style="color:#929ca0">/**********************************************<br/>
+&nbsp;*&nbsp;CONTAINER&nbsp;:&nbsp;NON-DEFAULT&nbsp;CONSTRUCTOR<br/>
+&nbsp;*&nbsp;Preallocate&nbsp;the&nbsp;container&nbsp;to&nbsp;"capacity"<br/>
+&nbsp;**********************************************/</span><br/>
+<span style="color:#2c62ba">template</span>&nbsp;&lt;class&nbsp;T&gt;<br/>
+Container&nbsp;&lt;T&gt;&nbsp;::&nbsp;Container(<span style="color:#2c62ba">int</span>&nbsp;capacity)&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;<span style="color:#2c62ba">char</span>&nbsp;*)<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">assert</span>(capacity&nbsp;&gt;=&nbsp;0);<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;do&nbsp;nothing&nbsp;if&nbsp;there&nbsp;is&nbsp;nothing&nbsp;to&nbsp;do</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">if</span>&nbsp;(capacity&nbsp;==&nbsp;0)<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">this</span>-&gt;capacity&nbsp;=&nbsp;<span style="color:#2c62ba">this</span>-&gt;numItems&nbsp;=&nbsp;0;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">this</span>-&gt;data&nbsp;=&nbsp;0x00000000;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">return</span>;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;attempt&nbsp;to&nbsp;allocate</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">try</span><br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;=&nbsp;new&nbsp;T[capacity];<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">catch</span>&nbsp;(<span style="color:#2c62ba">std</span>::bad_alloc)<br/>
+&nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;<span style="color:#466ba6">"ERROR:&nbsp;Unable&nbsp;to&nbsp;allocate&nbsp;buffer"</span>;<br/>
+&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;copy&nbsp;over&nbsp;the&nbsp;stuff</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">this</span>-&gt;capacity&nbsp;=&nbsp;capacity;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">this</span>-&gt;numItems&nbsp;=&nbsp;0;<br/>
+}<br/>
+<br/>
+<span style="color:#929ca0">/***************************************************<br/>
+&nbsp;*&nbsp;CONTAINER&nbsp;::&nbsp;INSERT<br/>
+&nbsp;*&nbsp;Insert&nbsp;an&nbsp;item&nbsp;on&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;container<br/>
+&nbsp;**************************************************/</span><br/>
+<span style="color:#2c62ba">template</span>&nbsp;&lt;class&nbsp;T&gt;<br/>
+<span style="color:#2c62ba">void</span>&nbsp;Container&nbsp;&lt;T&gt;&nbsp;::&nbsp;insert(<span style="color:#2c62ba">const</span>&nbsp;T&nbsp;&amp;&nbsp;t)&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;(<span style="color:#2c62ba">const</span>&nbsp;<span style="color:#2c62ba">char</span>&nbsp;*)<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;do&nbsp;we&nbsp;have&nbsp;space?</span><br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">if</span>&nbsp;(capacity&nbsp;==&nbsp;0&nbsp;||&nbsp;capacity&nbsp;==&nbsp;numItems)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#2c62ba">throw</span>&nbsp;<span style="color:#466ba6">"ERROR:&nbsp;Insufficient&nbsp;space"</span>;<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<span style="color:#929ca0">//&nbsp;add&nbsp;an&nbsp;item&nbsp;to&nbsp;the&nbsp;end</span><br/>
+&nbsp;&nbsp;&nbsp;data[numItems++]&nbsp;=&nbsp;t;<br/>
+}<br/>
+<br/>
+<br/>
+<span style="color:#2c62ba">#endif</span>&nbsp;<span style="color:#929ca0">//&nbsp;CONTAINER_H</span><br/>
+<br/>
+ </p>
+</div></body></html>

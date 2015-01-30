@@ -1,0 +1,6 @@
+virtual int hash(const string & value) const
+   {
+      return (int)(value[0]
+                   + value[value.size() - 1] * value.size()
+                   + value[value.size() / 2]) % capacity();
+   }

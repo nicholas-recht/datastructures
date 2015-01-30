@@ -1,0 +1,144 @@
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir9d7cb8a8-3c47-45f4-8723-ce70f94e0850/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir0bb401fb-0537-4358-aa1e-71934b50086a/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir71201f14-d142-40c2-8dc3-305a157d82df/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDira4c47814-e78e-4ba0-a1e5-0d338d9f339a/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir072e5741-65af-48b9-8b79-a472722e07ff/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir9f54384f-1c9a-4b1a-9d70-75d52d868765/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir5ee2c16c-e95d-4b2d-aabf-1d563bf7b194/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 
+
+# mkdir lesson09.tar.dir 2>> lesson09.compile 
+
+# cp lesson09.tar lesson09.tar.dir/tar.tar 2>> lesson09.compile 
+
+# tar -xf  lesson09.tar.dir/tar.tar -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+
+# make a.out -C lesson09.tar.dir 2>> lesson09.compile >> lesson09.compile 
+make: Entering directory `/home/cs235f/lesson09/lesson09.tar.dir'
+g++ -c lesson09.cpp
+g++ -c wordCount.cpp 
+g++ -o a.out lesson09.o wordCount.o 
+tar -cf lesson09.tar *.h *.cpp makefile
+make: Leaving directory `/home/cs235f/lesson09/lesson09.tar.dir'
+
+# mv lesson09.tar.dir/a.out /tmp/testbed/compileDir46427407-36fe-4bbd-a23f-fea0454bfb71/lesson09 2>> lesson09.compile >> lesson09.compile 
+
+# rm -rf lesson09.tar.dir 2>> lesson09.compile 

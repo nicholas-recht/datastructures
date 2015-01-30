@@ -1,0 +1,38 @@
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+cp: cannot stat `lesson11.tar': No such file or directory
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+tar: lesson11.tar.dir/tar.tar: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson10/lesson11.tar.dir'
+make: *** No rule to make target `a.out'.  Stop.
+make: Leaving directory `/home/cs235f/lesson10/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDirf9dfadab-1174-4778-8e47-2355ab131c21/lesson11 2>> lesson11.compile >> lesson11.compile 
+mv: cannot stat `lesson11.tar.dir/a.out': No such file or directory
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
+
+# mkdir lesson11.tar.dir 2>> lesson11.compile 
+
+# cp lesson11.tar lesson11.tar.dir/tar.tar 2>> lesson11.compile 
+cp: cannot stat `lesson11.tar': No such file or directory
+
+# tar -xf  lesson11.tar.dir/tar.tar -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+tar: lesson11.tar.dir/tar.tar: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+
+# make a.out -C lesson11.tar.dir 2>> lesson11.compile >> lesson11.compile 
+make: Entering directory `/home/cs235f/lesson10/lesson11.tar.dir'
+make: *** No rule to make target `a.out'.  Stop.
+make: Leaving directory `/home/cs235f/lesson10/lesson11.tar.dir'
+
+# mv lesson11.tar.dir/a.out /tmp/testbed/compileDira6a74e71-caee-4d06-8d5c-4200c2815852/lesson11 2>> lesson11.compile >> lesson11.compile 
+mv: cannot stat `lesson11.tar.dir/a.out': No such file or directory
+
+# rm -rf lesson11.tar.dir 2>> lesson11.compile 
